@@ -1,43 +1,65 @@
-let nombre_completo = document.getElementById("nombre_completo").value;
-let email = document.getElementById("email").value;
-let numero_celular = document.getElementById("numero_celular").value;
-let genero = document.getElementById("genero").value;
-let fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
-let direccion = document.getElementById("direccion").value;
-let password = document.getElementById("password").value;
+function ValidarInformacion() {
+    let nombre = document.getElementById("nombre").value;
+    let email = document.getElementById("email").value;
+    let numeroCelular = document.getElementById("numeroCelular").value;
+    let fechaNacimiento = document.getElementById("fechaN").value;
+    let direccion = document.getElementById("direccion").value;
+    let contrasena = document.getElementById("contraseña").value;
 
-function ValidarDatos() {
-    if (nombre != '' || email != '') {
-        if (nombre == /^[^\d]*$/) {
-            console.log("los datos ingresados son incorrectos")
-        }
-        if (!Email.include('@')) {
-            console.log("los datos ingresados son correctos")
-        }
+    if (
+        !nombre || !email ||
+        !numeroCelular || !fechaNacimiento ||
+        !direccion || !contrasena
+    ) {
+        console.log(
+            `Informacion del Usuario: \n
+            ${nombre} \n ${email} \n
+            ${numeroCelular} \n ${fechaNacimiento} \n
+            ${direccion} \n ${contrasena}`
+        );
+        Swal.fire({
+            title: "campos incompletos",
+            text: "rellena los campos",
+            icon: "question"
+        });
     }
     else {
-        console.log("ingrese todos los datos")
+        console.log(
+            `Informacion del Usuario: \n
+            ${nombre} \n ${email} \n
+            ${numeroCelular} \n ${fechaNacimiento} \n
+            ${direccion} \n ${contrasena}`
+        );
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Informacion Guardada Correctamente",
+            showConfirmButton: false,
+            timer: 1500
+        });
     }
-
-    if (numeroCelular != '' || fechaN != '') {
-        if (numeroCelular.length >= 10) {
-            console.log("los datos ingresados son incorrectos")
-        }
-        if (fechaN == getDate()) {
-            console.log("no se aceptan fechas mayores a la actual")
-        }
-        else {
-            console.log("ingrese todos los datos")
-        }
+    if (!/^[a-zA-Z]+$/.test(nombre)) {
+        console.log("El nombre debe tener letras")
+        Swal.fire({
+            icon: "error",
+            text: "El nombre debe tener letras"
+        })
+        return;
     }
-
-    if (direccion != '' || contraseña != '') {
-        if (contraseña.length >= 10) {
-            console.log("los datos ingresados son incorrectos")
-        }
-        else {
-            console.log("ingrese todos los datos")
-        }
-
+     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        Swal.fire({
+            title: "Ingrese un correo electrónico válido",
+            icon: "error"
+        });
+        return;
+    }
+     if (!/^\d+$/.test(numeroCelular)) {
+        Swal.fire({
+            title: "El telefono debe contener numeros",
+            icon: "error"
+        });
+        return;
     }
 }
+
+document.getElementById("btnGuardar").onclick = ValidarInformacion;

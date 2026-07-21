@@ -6,65 +6,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../css/pedidos.css">
-
-    <title>Pedidos</title>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
 </head>
 
 <body>
-    <div class="encabezado">
-
-        <h1>Pedidos</h1>
-
-        <a href="../index.html">
-            <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png"
-                 alt="Casita">
-        </a>
-  
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                pedidos
+            </a>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-light" href="../index.html">
+                        inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <h1>PEDIDOS</h1>
+    <div class="field">
+        <label class="label">direccion</label>
+        <div class="control">
+            <input id="direccion" class="input" type="text" placeholder="direccion">
+        </div>
     </div>
 
-    <!-- FORMULARIO -->
-    <div class="contenedor-formulario">
+    <div class="field">
+        <label class="label">telefono</label>
+        <div class="control has-icons-left has-icons-right">
+            <input id="telefono" class="input is-success" type="number" placeholder="telefono" value="bulma" required>
 
-        <form class="formulario">
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input id="Email" class="input is-danger" type="email" placeholder="Email input" value="hello@" required>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </span>
+                </div>
+                <p class="help is-danger">This email is invalid</p>
+            </div>
 
-            <h2>Realizar Pedido</h2>
+            <div class="field">
+                <label class="label">MetodoDePago</label>
+                <div class="control">
+                    <input id="MetodoDePago" class="input" type="text" placeholder="MetodoDePago" required>
+                </div>
+            </div>
 
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required>
+            <div class="field">
+                <label class="label">pedido</label>
+                <div class="control">
+                    <input id="pedido" class="input" type="text" placeholder="pedido" required>
+                </div>
+            </div>
 
-            <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion" required>
+            <div class="field">
+                <label class="label">nombre</label>
+                <div class="control">
+                    <input id="nombre" class="input" type="text" placeholder="nombre" required>
+                </div>
+            </div>
 
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" required>
+            <div class="field">
+                <label class="label">referencias</label>
+                <div class="control">
+                    <input id="referencias" class="input" type="text" placeholder="referencias" required>
+                </div>
+            </div>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
 
-            <label for="metodo_pago">Método de Pago</label>
-
-            <select id="metodo_pago" name="metodo_pago" required>
-                <option value="">Seleccione</option>
-                <option value="efectivo">Efectivo</option>
-                <option value="nequi">Nequi</option>
-                <option value="daviplata">Daviplata</option>
-                <option value="tarjeta">Tarjeta</option>
-            </select>
-
-            <label for="pedido">Pedido</label>
-
-            <textarea id="pedido"
-                      name="pedido"
-                      rows="4"
-                      required></textarea>
-
-            <button type="submit">Pedir</button>
-
-        </form>
-
-    </div>
-
-</body>
+              </div>
+            <hr>
+            <div class="buttons is-flex is-justify-content-center">
+                <a type="button" class="button is-danger" href="../index.html">Home</a>
+                <button class="button is-info is-dark" id="btnGuardar">Guardar</button>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/javascript/pedidos.js"></script>
+</body>
+
+
 
 </html>
